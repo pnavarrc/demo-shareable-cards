@@ -1,0 +1,25 @@
+name: Continuous Integration
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+          uses: actions/setup-node@v2
+      - name: Install dependencies
+        run: yarn
+      - name: Run Prettier
+        run: yarn format
+      - name: Run ESLint
+        run: yarn lint
+      - name: Run unit tests
+        run: yarn test
