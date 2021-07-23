@@ -26,9 +26,17 @@ const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+        <Link
+          href={{
+            pathname: "/recipes",
+            query: { shareId: recipe.slug },
+          }}
+          passHref
+        >
+          <Button size="small" color="primary">
+            Share
+          </Button>
+        </Link>
         <Link href={`/recipes/${recipe.slug}`} passHref>
           <Button size="small" color="primary">
             Learn More
