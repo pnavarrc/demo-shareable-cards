@@ -2,12 +2,25 @@ import { ParsedUrlQuery } from "querystring";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Container, Typography } from "@material-ui/core";
 import { Recipe, recipes, getRecipeBySlug } from "../../src/cms";
+import Head from "next/head";
+import Image from "next/image";
 
 const RecipePage: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
   return (
-    <Container>
-      <Typography variant="h1">{recipe.title}</Typography>
-    </Container>
+    <>
+      <Head>
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:title" content={recipe.title}></meta>
+        <meta name="twitter:image" content={recipe.imgUrl}></meta>
+      </Head>
+      <Container>
+        <Typography variant="h1">{recipe.title}</Typography>
+        <Typography variant="body2" gutterBottom>
+          {recipe.description}
+        </Typography>
+        <Image src={recipe.imgUrl} width={600} height={400} />
+      </Container>
+    </>
   );
 };
 

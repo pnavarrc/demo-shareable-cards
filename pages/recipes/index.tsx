@@ -1,18 +1,18 @@
-import { Container, Typography } from "@material-ui/core";
-import { Recipe, recipes } from "../../src/cms";
-import Link from "next/link";
+import { Container, Typography, Grid } from "@material-ui/core";
+import { recipes } from "../../src/cms";
+import RecipeShareCard from "../../src/components/RecipeShareCard";
 
 const RecipesHomePage: React.FC = () => {
   return (
     <Container>
       <Typography variant="h1">Recipes</Typography>
-      <ul>
+      <Grid container spacing={2}>
         {recipes.map((recipe) => (
-          <li>
-            <Link href={`/recipes/${recipe.slug}`}>{recipe.title}</Link>
-          </li>
+          <Grid item md={4}>
+            <RecipeShareCard recipe={recipe} />
+          </Grid>
         ))}
-      </ul>
+      </Grid>
     </Container>
   );
 };
