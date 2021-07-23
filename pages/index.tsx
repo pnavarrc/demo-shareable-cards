@@ -1,14 +1,22 @@
 import Head from "next/head";
+import Link from "next/link";
+import { Button, Container } from "@material-ui/core";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Cosmic Crisp Recipes</title>
       </Head>
-      <div>
-        <h1>Home</h1>
-      </div>
+      <Container>
+        <h1>🍎 Recipes!</h1>
+
+        <Link href="/recipes" passHref>
+          <Button color="primary" variant="contained">
+            Recipes
+          </Button>
+        </Link>
+      </Container>
     </>
   );
 };
