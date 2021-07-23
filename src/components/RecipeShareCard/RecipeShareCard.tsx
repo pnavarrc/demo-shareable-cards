@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { TwitterShareButton } from "react-share";
 import {
   Card,
   CardContent,
@@ -7,7 +9,6 @@ import {
   Button,
 } from "@material-ui/core";
 import { Recipe } from "../../../src/cms";
-import Link from "next/link";
 
 const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
   return (
@@ -26,13 +27,25 @@ const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Link href={`/recipes/${recipe.slug}`} passHref>
+        <Link
+          href={{
+            pathname: "/recipes",
+            query: { shareId: recipe.slug },
+          }}
+          passHref
+        >
           <Button size="small" color="primary">
-            Learn More
+            Share
           </Button>
+        </Link>
+        <Link href={`/recipes/${recipe.slug}`} passHref>
+          <TwitterShareButton
+            url={`http://demo-shareable-cards.vercel.app/recipes?shareId=${recipe.slug}`}
+            title={recipe.title}
+            hashtags={["apples", "cosmic-crisp"]}
+          >
+            Share
+          </TwitterShareButton>
         </Link>
       </CardActions>
     </Card>

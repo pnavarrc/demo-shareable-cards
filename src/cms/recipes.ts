@@ -32,6 +32,14 @@ export const recipes: Recipe[] = [
     description:
       "Add the Cosmic Crisp® apples, honey, mint and basil to a blender. Pour in the water. Blend very well, about 45 seconds-1 minute. ",
   },
+  {
+    title: "Red, White & Blue Potato Salad With Buttermilk Herb Dressing",
+    slug: "red-white-blue-potato-salad",
+    imgUrl:
+      "https://cosmiccrisp.com/wp-content/uploads/2021/05/210419-Chadwick-616-600x500.jpg",
+    description:
+      "Place 1½-2 inches of water in the bottom of a large pot. Place a steamer basket in the pot and add the cut potatoes to the basket.",
+  },
 ];
 
 const recipeBySlug = keyBy(recipes, (recipe) => recipe.slug);
