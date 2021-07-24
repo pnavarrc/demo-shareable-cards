@@ -27,17 +27,6 @@ const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link
-          href={{
-            pathname: "/recipes",
-            query: { shareId: recipe.slug },
-          }}
-          passHref
-        >
-          <Button size="small" color="primary">
-            Share
-          </Button>
-        </Link>
         <Link href={`/recipes/${recipe.slug}`} passHref>
           <TwitterShareButton
             url={`http://demo-shareable-cards.vercel.app/recipes?shareId=${recipe.slug}`}
@@ -46,6 +35,11 @@ const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
           >
             Share
           </TwitterShareButton>
+        </Link>
+        <Link href={`/recipes/${recipe.slug}`} passHref>
+          <Button size="small" color="primary">
+            Learn more
+          </Button>
         </Link>
       </CardActions>
     </Card>
