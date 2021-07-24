@@ -7,7 +7,7 @@ const SocialMetaTags: React.FC<{
 }> = ({ site, creator, title, description, imageUrl }) => {
   return (
     <>
-      <meta name="twitter:card" content="summary_large_image"></meta>
+      <meta name="twitter:card" content="summary"></meta>
       <meta name="twitter:site" content={site}></meta>
       <meta name="twitter:creator" content={creator}></meta>
       <meta name="twitter:title" content={title}></meta>

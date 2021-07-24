@@ -27,7 +27,7 @@ const RecipesHomePage: React.FC = () => {
             creator="@pnavarrc"
             title="Apple recipes"
             description="Apple recipes"
-            imageUrl=""
+            imageUrl="https://cosmiccrisp.com/wp-content/uploads/2021/03/Apple-Date-Crisp-e1614727396388-600x500.png"
           />
         )}
       </Head>
