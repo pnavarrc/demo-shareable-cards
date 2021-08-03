@@ -9,7 +9,6 @@ const RecipesHomePage: React.FC = () => {
   const { shareId } = router.query;
   const sharedRecipe =
     typeof shareId === "string" ? getRecipeBySlug(shareId) : null;
-  console.log(sharedRecipe);
   return (
     <>
       <Head>
