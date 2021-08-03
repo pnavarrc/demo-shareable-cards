@@ -12,16 +12,16 @@ const RecipesHomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <meta name="twitter:card" key="twitter_card" content="summary" />
         <meta
-          name="twitter:site"
-          key="twitter_site"
-          content={"apple recipes"}
+          name="twitter:card"
+          key="twitter_card"
+          content="summary_large_image"
         />
+        <meta name="twitter:site" key="twitter_site" content="@pnavarrc" />
         <meta
           name="twitter:creator"
           key="twitter_creator"
-          content={"@pnavarrc"}
+          content="@pnavarrc"
         />
         {/* Generic content */}
         <meta
