@@ -34,7 +34,7 @@ const RecipeShareCard: React.FC<{ recipe: Recipe; highlight?: boolean }> = ({
       <CardActions>
         <Link href={`/recipes/${recipe.slug}`} passHref>
           <TwitterShareButton
-            url={`https://demo-shareable-cards.vercel.app/recipes?shareId=${recipe.slug}`}
+            url={`https://demo-shareable-cards.vercel.app/recipes/share/${recipe.slug}`}
             title={recipe.title}
             hashtags={["apples", "cosmic-crisp"]}
           >
