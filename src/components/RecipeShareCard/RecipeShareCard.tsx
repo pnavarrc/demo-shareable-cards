@@ -10,9 +10,14 @@ import {
 } from "@material-ui/core";
 import { Recipe } from "../../../src/cms";
 
-const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
+const RecipeShareCard: React.FC<{ recipe: Recipe; highlight?: boolean }> = ({
+  recipe,
+  highlight = false,
+}) => {
   return (
-    <Card style={{ maxWidth: 345 }}>
+    <Card
+      style={{ maxWidth: 345, border: highlight ? "solid 2px black" : "none" }}
+    >
       <CardMedia
         style={{ height: 140 }}
         image={recipe.imgUrl}
@@ -29,7 +34,7 @@ const RecipeShareCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
       <CardActions>
         <Link href={`/recipes/${recipe.slug}`} passHref>
           <TwitterShareButton
-            url={`https://demo-shareable-cards.vercel.app/recipes?shareId=${recipe.slug}`}
+            url={`https://demo-shareable-cards.vercel.app/recipes/share/${recipe.slug}`}
             title={recipe.title}
             hashtags={["apples", "cosmic-crisp"]}
           >
