@@ -17,7 +17,7 @@ const _App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
-        <title>Title</title>
+        <title key="title">Title</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

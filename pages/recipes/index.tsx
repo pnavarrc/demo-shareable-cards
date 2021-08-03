@@ -3,32 +3,63 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { recipes, getRecipeBySlug } from "../../src/cms";
 import RecipeShareCard from "../../src/components/RecipeShareCard";
-import SocialMetaTags from "../../src/components/SocialMetaTags";
 
 const RecipesHomePage: React.FC = () => {
   const router = useRouter();
   const { shareId } = router.query;
   const sharedRecipe =
     typeof shareId === "string" ? getRecipeBySlug(shareId) : null;
+  console.log(sharedRecipe);
   return (
     <>
       <Head>
-        {sharedRecipe ? (
-          <SocialMetaTags
-            site="@pnavarrc"
-            creator="@pnavarrc"
-            title={sharedRecipe.title}
-            description={sharedRecipe.description}
-            imageUrl={sharedRecipe.imgUrl}
-          />
-        ) : (
-          <SocialMetaTags
-            site="@pnavarrc"
-            creator="@pnavarrc"
-            title="Apple recipes"
-            description="Apple recipes"
-            imageUrl="https://cosmiccrisp.com/wp-content/uploads/2021/03/Apple-Date-Crisp-e1614727396388-600x500.png"
-          />
+        <meta name="twitter:card" key="twitter_card" content="summary" />
+        <meta
+          name="twitter:site"
+          key="twitter_site"
+          content={"apple recipes"}
+        />
+        <meta
+          name="twitter:creator"
+          key="twitter_creator"
+          content={"@pnavarrc"}
+        />
+        {/* Generic content */}
+        <meta
+          name="twitter:title"
+          key="twitter_title"
+          content={"Apple recipes"}
+        />
+        <meta
+          name="twitter:description"
+          key="twitter_description"
+          content={"generic description"}
+        />
+        <meta
+          name="twitter:image"
+          key="twitter_image"
+          content="https://cosmiccrisp.com/wp-content/uploads/2021/03/Apple-Date-Crisp-e1614727396388-600x500.png"
+        />
+        {/* Shared content */}
+        {sharedRecipe && (
+          <>
+            <meta
+              name="twitter:title"
+              key="twitter_title"
+              content={sharedRecipe.title}
+            />
+            <meta
+              name="twitter:description"
+              key="twitter_description"
+              content={sharedRecipe.description}
+            />
+            <meta
+              name="twitter:image"
+              key="twitter_image"
+              content={sharedRecipe.imgUrl}
+            />
+            <title key="title">{sharedRecipe.title}</title>
+          </>
         )}
       </Head>
       <Container>
