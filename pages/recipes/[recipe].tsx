@@ -9,9 +9,13 @@ const RecipePage: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
   return (
     <>
       <Head>
-        <meta name="twitter:card" content="summary"></meta>
-        <meta name="twitter:title" content={recipe.title}></meta>
-        <meta name="twitter:image" content={recipe.imgUrl}></meta>
+        <meta name="twitter:card" content="summary" key="twitter_card" />
+        <meta name="twitter:title" content={recipe.title} key="twitter_title" />
+        <meta
+          name="twitter:image"
+          content={recipe.imgUrl}
+          key="twitter_image"
+        />
       </Head>
       <Container>
         <Typography variant="h1">{recipe.title}</Typography>
